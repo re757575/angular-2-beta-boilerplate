@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, EventEmitter} from 'angular2/core';
 
 @Component({
    selector: 'my-first-component',
@@ -7,7 +7,7 @@ import {Component, Input} from 'angular2/core';
             <h2>{{title}}</h2>
             <p>My name is <span [style.color]="'red'">{{name}}</span></p>
             <br/>
-            <input [(ngModel)]="name" placeholder="type your name"/>
+            <input (keyup)="onNameChanged(nameElement.value)" #nameElement placeholder="change your name"/>
             <br/>
             <input [value]="name" [placeholder]="name === ''
                 ? 'this is property binding'
@@ -21,6 +21,7 @@ import {Component, Input} from 'angular2/core';
    `,
     // 等於 @Input('myTitle') title
     // inputs: ['title:myTitle']
+    outputs: ['nameChanged']
 })
 export class MyFirstComponent {
     name: string;
@@ -41,4 +42,12 @@ export class MyFirstComponent {
     mykeyup(value: string) {
         this.values += value +' | ';
     }
+    
+    // coustom event binding
+    nameChanged = new EventEmitter<string>();
+    onNameChanged(name: string) {
+        this.name = name;
+        this.nameChanged.emit(name);
+    }
+    
 }
