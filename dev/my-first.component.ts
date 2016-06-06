@@ -1,10 +1,10 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 @Component({
    selector: 'my-first-component',
    template: `
         <section>
-            <h2>My First Component</h2>
+            <h2>{{title}}</h2>
             <p>My name is <span [style.color]="'red'">{{name}}</span></p>
             <br/>
             <input [(ngModel)]="name" placeholder="type your name"/>
@@ -18,12 +18,16 @@ import {Component} from 'angular2/core';
             <input (keyup)="mykeyup(inputElement.value)" #inputElement placeholder="type something"/>
             <p>{{values}}</p>
         </section>
-   `
+   `,
+    // 等於 @Input('myTitle') title
+    // inputs: ['title:myTitle']
 })
 export class MyFirstComponent {
     name: string;
     values: string;
     myClick: any;
+    
+    @Input('myTitle') title = 'It is my default title';
 
     constructor() {
         this.name = 'Alex';
@@ -38,4 +42,3 @@ export class MyFirstComponent {
         this.values += value +' | ';
     }
 }
-

@@ -6,10 +6,13 @@ import {MyFirstComponent} from './my-first.component';
     template: `
         <h1>Angular 2 Boilerplate</h1>
         <p>Hello World!</p>
-        <my-first-component></my-first-component>
+        <input [(ngModel)]="componentTitle" placeholder="type title"/>
+        <br/>
+        <br/>
+        <my-first-component [myTitle]="componentTitle"></my-first-component>
     `,
     directives: [MyFirstComponent]
 })
 export class AppComponent {
-
+    componentTitle = 'My First Component';
 }
