@@ -7,6 +7,10 @@ import {Component} from 'angular2/core';
         <span>My name is {{name}} !</span>
         <br/>
         <input [(ngModel)]="name" placeholder="type your name"/>
+        <br/>
+        <input [value]="name" [placeholder]="name === '' 
+            ? 'this is property binding'
+            : name" readonly="true"/>
    `
 })
 export class MyFirstComponent {
