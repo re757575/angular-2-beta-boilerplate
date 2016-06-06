@@ -4,3 +4,19 @@ body {
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
 }
+
+section {
+  padding: 16px;
+  margin-bottom: 32px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+
+  h2 {
+    margin: 0;
+  }
+
+  input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
