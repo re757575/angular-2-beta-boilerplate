@@ -1,10 +1,12 @@
 import {Directive, ElementRef, OnInit, Renderer} from 'angular2/core';
 
 @Directive({
-    selector: '[myHighligth]'
+    selector: '[myHighligth]',
+    inputs: ['highlightColor:myHighligth'] // property binding
 })
 export class HighLightDirective {
     private _defaultColor = 'green';
+    private highlightColor: string;
 
     // constructor(private _elRef: ElementRef) {
     //     this._elRef = _elRef;
@@ -18,6 +20,6 @@ export class HighLightDirective {
 
     ngOnInit(): any {
         this._renderer.setElementStyle(this._elRef.nativeElement,
-            'backgroundColor', this._defaultColor);
+            'backgroundColor', this.highlightColor || this._defaultColor);
     }
 }

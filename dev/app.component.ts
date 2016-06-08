@@ -5,14 +5,14 @@ import {HighLightDirective} from './highligth.driectives';
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Angular 2 Boilerplate</h1>
-        <p myHighligth>Hello World!</p>
+        <h1 [myHighligth]="'blue'">Angular 2 Boilerplate</h1>
+        <p [myHighligth]="'red'">Hello World!</p>
         <input [(ngModel)]="componentTitle" placeholder="type title"/>
         <br/>
         <br/>
         <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event">
         </my-first-component>
-        <h3> Your name is {{name}}<h3>
+        <h3 myHighligth> Your name is {{name}}<h3>
     `,
     directives: [MyFirstComponent, HighLightDirective]
 })
