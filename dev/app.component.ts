@@ -1,11 +1,12 @@
 import {Component} from 'angular2/core';
 import {MyFirstComponent} from './my-first.component';
+import {HighLightDirective} from './highligth.driectives';
 
 @Component({
     selector: 'my-app',
     template: `
         <h1>Angular 2 Boilerplate</h1>
-        <p>Hello World!</p>
+        <p myHighligth>Hello World!</p>
         <input [(ngModel)]="componentTitle" placeholder="type title"/>
         <br/>
         <br/>
@@ -13,7 +14,7 @@ import {MyFirstComponent} from './my-first.component';
         </my-first-component>
         <h3> Your name is {{name}}<h3>
     `,
-    directives: [MyFirstComponent]
+    directives: [MyFirstComponent, HighLightDirective]
 })
 export class AppComponent {
     componentTitle = 'My First Component';
