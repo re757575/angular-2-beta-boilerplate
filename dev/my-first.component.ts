@@ -7,7 +7,8 @@ import {Component, Input, EventEmitter} from 'angular2/core';
             <h2>{{title}}</h2>
             <p>My name is <span [style.color]="'red'">{{name}}</span></p>
             <br/>
-            <input (keyup)="onNameChanged(nameElement.value)" #nameElement placeholder="change your name"/>
+            <input (keyup)="onNameChanged(nameElement.value)" #nameElement
+                placeholder="change your name"/>
             <br/>
             <input [value]="name" [placeholder]="name === ''
                 ? 'this is property binding'
@@ -15,7 +16,8 @@ import {Component, Input, EventEmitter} from 'angular2/core';
             <br/>
             <button (click)="myClick()">click me</button>
             <br/>
-            <input (keyup)="mykeyup(inputElement.value)" #inputElement placeholder="type something"/>
+            <input (keyup)="mykeyup(inputElement.value)" #inputElement
+                placeholder="type something"/>
             <p>{{values}}</p>
         </section>
    `,
@@ -27,7 +29,7 @@ export class MyFirstComponent {
     name: string;
     values: string;
     myClick: any;
-    
+
     @Input('myTitle') title = 'It is my default title';
 
     constructor() {
@@ -40,14 +42,15 @@ export class MyFirstComponent {
 
     // prototype
     mykeyup(value: string) {
-        this.values += value +' | ';
+        this.values += value + ' | ';
     }
-    
+
     // coustom event binding
     nameChanged = new EventEmitter<string>();
+
     onNameChanged(name: string) {
         this.name = name;
         this.nameChanged.emit(name);
     }
-    
+
 }

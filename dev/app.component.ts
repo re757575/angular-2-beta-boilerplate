@@ -9,7 +9,8 @@ import {MyFirstComponent} from './my-first.component';
         <input [(ngModel)]="componentTitle" placeholder="type title"/>
         <br/>
         <br/>
-        <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event"></my-first-component>
+        <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event">
+        </my-first-component>
         <h3> Your name is {{name}}<h3>
     `,
     directives: [MyFirstComponent]
