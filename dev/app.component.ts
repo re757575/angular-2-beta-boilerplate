@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
 import {MyFirstComponent} from './my-first.component';
 import {HighLightDirective} from './highligth.driectives';
+import {StructuralDirectives} from './structural-directives';
+
 
 @Component({
     selector: 'my-app',
@@ -13,11 +15,9 @@ import {HighLightDirective} from './highligth.driectives';
         <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event">
         </my-first-component>
         <h3 myHighligth>Your name is {{name}}</h3>
-        <div *ngIf="name == 'Alex'">
-            <h5>Hi {{name}}</h5>
-        </div>
+        <structural-directives></structural-directives>
     `,
-    directives: [MyFirstComponent, HighLightDirective]
+    directives: [MyFirstComponent, HighLightDirective, StructuralDirectives]
 })
 export class AppComponent {
     componentTitle = 'My First Component';
