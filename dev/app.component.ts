@@ -12,7 +12,10 @@ import {HighLightDirective} from './highligth.driectives';
         <br/>
         <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event">
         </my-first-component>
-        <h3 myHighligth> Your name is {{name}}<h3>
+        <h3 myHighligth>Your name is {{name}}</h3>
+        <div *ngIf="name == 'Alex'">
+            <h5>Hi {{name}}</h5>
+        </div>
     `,
     directives: [MyFirstComponent, HighLightDirective]
 })
