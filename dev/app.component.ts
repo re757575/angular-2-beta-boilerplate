@@ -1,25 +1,18 @@
 import {Component} from 'angular2/core';
-import {MyFirstComponent} from './my-first.component';
-import {HighLightDirective} from './highligth.driectives';
-import {StructuralDirectives} from './structural-directives';
-
+import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <h1 [myHighligth]="'blue'">Angular 2 Boilerplate</h1>
-        <p [myHighligth]="'red'">Hello World!</p>
-        <input [(ngModel)]="componentTitle" placeholder="type title"/>
-        <br/>
-        <br/>
-        <my-first-component [myTitle]="componentTitle" (nameChanged)="name = $event">
-        </my-first-component>
-        <h3 myHighligth>Your name is {{name}}</h3>
-        <structural-directives></structural-directives>
+        <header>
+            <div class="brand">Shopping List</div>
+        </header>
+        <div>
+            <shopping-list></shopping-list>
+        </div>
     `,
-    directives: [MyFirstComponent, HighLightDirective, StructuralDirectives]
+    directives: [ShoppingListComponent]
 })
 export class AppComponent {
-    componentTitle = 'My First Component';
-    name = '';
+
 }
